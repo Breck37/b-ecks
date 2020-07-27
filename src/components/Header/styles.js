@@ -37,7 +37,7 @@ export const HeaderStyled = styled.div`
         clip-path: polygon(0% 0%,80% 0%,60% 100%, 0% 100%);
         background: rebeccapurple;
         margin-bottom: 1.45rem;
-        animation: headroll 2.5s linear;
+        animation: headroll 1.5s linear;
         position: relative;
     }
 

@@ -15,22 +15,34 @@ import styled from "styled-components"
 
 const LayoutStyled = styled.div`
   @keyframes tabhide {
-    0% {
-      visibility: hidden;
+      from {
+        clip-path: inset(0 0 0 100%);
+      }
+      to {
+        clip-path: inset(0 0 0 0);
+      }
+  }
+
+  @keyframes hide {
+    from {
+      opacity: 1;
     }
-    25% {
-      visibility: hidden;
-    }
-    50% {
-      visibility: hidden;
-    }
-    75% {
-      visibility: hidden;
-    }
-    100% {
-      visibility: visible;
+    to {
+      opacity: 0;
     }
   }
+
+  // > .cover {
+  //   opacity: 0;
+  //   position: absolute;
+  //   right: 0;
+  //   top: 0;
+  //   width: 35vw;
+  //   height: 100px;
+  //   z-index: 1000;
+  //   background-color: #fff;
+  //   animation: hide 2s forwards;
+  // }
 
   > .menu {
     position: absolute;
@@ -40,9 +52,9 @@ const LayoutStyled = styled.div`
     width: 30vw;
     align-items: center;
     justify-content: space-between;
-    margin: 40px 32px 0 0;
-    animation: tabhide 4s linear;
-    transition: visibility 3s;
+    margin: 32px 32px 0 0;
+    animation: tabhide 4s forwards;
+    animation-delay: 0s;
   }
 `;
 
@@ -56,10 +68,11 @@ const Layout = ({ children }) => {
       }
     }
   `)
-  console.log('data------------', data)
+
   return (
     <LayoutStyled>
       <Header siteTitle={data.site.siteMetadata.title} />
+      <div className="cover" />
       <div className="menu">
         <h3>Home</h3>
         <h3>About</h3>
