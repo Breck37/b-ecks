@@ -7,19 +7,19 @@ export const HeaderStyled = styled.div`
         0% {
             animation-timing-function: linear;
             opacity: 0;
-            width: 0;
+            width: 120vw;
         }
         25% {
             animation-timing-function: linear;
-            width: 80vw;
+            width: 110vw;
         }
         50% {
             animation-timing-function: linear;
-            width: 160vw;
+            width: 100vw;
         }
         75% {
             animation-timing-function: linear;
-            width: 100vw;
+            width: 90vw;
         }
         100% {
             animation-timing-function: linear;
@@ -34,9 +34,8 @@ export const HeaderStyled = styled.div`
     .header-container {
         width: 80vw;
         height: 90px;
-        clip-path: polygon(0% 0%,80% 0%,60% 100%, 0% 100%);
+        clip-path: polygon(0% 0%,80% 0%,70% 100%, 0% 100%);
         background: rebeccapurple;
-        margin-bottom: 1.45rem;
         animation: headroll 1.5s linear;
         position: relative;
     }
