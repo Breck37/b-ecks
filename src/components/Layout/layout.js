@@ -41,14 +41,16 @@ const LayoutStyled = styled.div`
     align-items: center;
     justify-content: space-between;
     margin: 32px 32px 0 0;
-    animation: tabhide 1.75s forwards;
+    animation: tabhide 1.8s forwards;
   }
 
   .body {
-    margin: 0 auto;
+    margin-top: 24px;
     maxWidth: 960;
     padding: 0 1.0875rem 1.45rem;
-    background: aqua;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 
@@ -73,12 +75,7 @@ const Layout = ({ children }) => {
         <h3>Contact</h3>
       </div>
       <div className="body">
-        <main >{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
+        <main>{children}</main>
       </div>
     </LayoutStyled>
   )
