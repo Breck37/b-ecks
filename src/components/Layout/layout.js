@@ -14,6 +14,8 @@ import "./layout.css"
 import styled from "styled-components"
 
 const LayoutStyled = styled.div`
+  height: 100vh;
+  width: 100vw;
   @keyframes tabhide {
       from {
         clip-path: inset(0 0 0 100%);
@@ -23,12 +25,33 @@ const LayoutStyled = styled.div`
       }
   }
 
-  @keyframes hide {
+  @keyframes slide {
     from {
-      opacity: 1;
+      width: 0
+    }
+    to{
+      width: 100px;
+    }
+  }
+  @keyframes slide165 {
+    from {
+      width: 0;
+      visibility: visible;
+    }
+    to{
+      width: 165px;
+      visibility: visible;
+    }
+  }
+
+  @keyframes slideVert {
+    from {
+      height: 0;
+      visibility: visible;
     }
     to {
-      opacity: 0;
+      height: 120px;
+      visibility: visible;
     }
   }
 
@@ -45,13 +68,61 @@ const LayoutStyled = styled.div`
   }
 
   .body {
-    margin-top: 24px;
-    maxWidth: 960;
-    padding: 0 1.0875rem 1.45rem;
+    height: 100%;
+    width: 100%;
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: center;
+    margin-top: 24px;
+    padding: 0 1.0875rem 1.45rem;
+
+    .sandbox-playground {
+      border: solid 1px #454dcc;
+      margin-top: 24px;
+      width: 75%;
+      height: 60%;
+      display: flex;
+
+      .slide {
+        height: 65px;
+        animation: slide 1s forwards;
+        background-color: green;
+        animation-timing-function: linear;
+      }
+      .slide2 {
+        width: 65px;
+        visibility: hidden;
+        animation: slideVert 1s forwards;
+        background-color: aqua;
+        animation-delay: 1s;
+        animation-timing-function: linear;
+      }
+      .slide3 {
+        position: absolute;
+        visibility: hidden;
+        width: 165px;
+        height: 65px;
+        background-color: red;
+        left: 364px;
+        top: 284px;
+        animation: slide165 1s forwards;
+        animation-delay: 2s;
+        animation-timing-function: linear;
+      }
+      .slide4 {
+        position: absolute;
+        // visibility: hidden;
+        width: 65px;
+        height: 165px;
+        background-color: purple;
+        left: 529px;
+        top: 284px;
+      }
+    }
   }
+
+
+
 `;
 
 const Layout = ({ children }) => {
@@ -75,7 +146,7 @@ const Layout = ({ children }) => {
         <h3>Contact</h3>
       </div>
       <div className="body">
-        <main>{children}</main>
+        {children}
       </div>
     </LayoutStyled>
   )
